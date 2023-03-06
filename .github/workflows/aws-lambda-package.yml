@@ -31,3 +31,9 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Package AWS Lambda
       run: make bundle-lambda-function-zip
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-without-markdown
+        path: ./expense-category-fetcher.zip
+        retention-days: 2
