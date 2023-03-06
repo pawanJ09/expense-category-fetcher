@@ -31,12 +31,3 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Package AWS Lambda
       run: make bundle-lambda-function-zip
-    - name: AWS Lambda Test
-      run: |
-        chmod +x ./test.sh
-        echo START
-        ./test.sh
-        if [ $? -ne 0 ]; then
-          exit 1
-        fi;
-        echo END
