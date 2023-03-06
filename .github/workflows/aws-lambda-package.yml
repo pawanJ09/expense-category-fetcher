@@ -34,6 +34,6 @@ jobs:
     - name: Archive artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: dist-without-markdown
+        name: expense-category-fetcher
         path: ./expense-category-fetcher.zip
         retention-days: 2

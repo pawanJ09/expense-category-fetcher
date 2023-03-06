@@ -9,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    on: ubuntu-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
@@ -26,6 +26,10 @@ jobs:
         aws-region: us-east-2
         role-duration-seconds: 1200
         role-session-name: MySessionName
+    - name: Download archived artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: expense-category-fetcher
     - name: AWS Lambda Deploy
       run: |
         aws lambda update-function-code --function-name expense-category-fetcher \
