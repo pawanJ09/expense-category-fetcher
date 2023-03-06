@@ -2,7 +2,7 @@ name: AWS Lambda Test
 
 on:
   workflow_run:
-    workflows: [ "AWS Lambda Deploy" ]
+    workflows: [ "AWS Lambda Package and Deploy" ]
     branches: [ main ]
     types:
       - completed
