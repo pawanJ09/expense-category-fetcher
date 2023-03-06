@@ -4,10 +4,13 @@ import os
 
 def lambda_handler(event, context):
     try:
+        print(f'Incoming event: {event}')
         event_body = json.loads(event['body'])
         print(f'Incoming API Gateway Message: {event_body}')
-        event_path = json.loads(event['path'])
-        event_http_method = json.loads(event['httpMethod'])
+        event_path = event['path']
+        print(f'Incoming API Gateway Path: {event_path}')
+        event_http_method = event['httpMethod']
+        print(f'Incoming API Gateway HTTP Method: {event_http_method}')
     except Exception as e:
         msg = '\nProcessing error. Check Cloudwatch logs.'
         raise Exception(msg)
