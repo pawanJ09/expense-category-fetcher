@@ -39,6 +39,7 @@ jobs:
         retention-days: 2
   deploy:
     runs-on: ubuntu-latest
+    needs: package
     defaults:
       run:
         shell: bash
