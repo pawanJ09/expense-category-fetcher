@@ -10,12 +10,10 @@ table = resource.Table('expense-categories')
 def lambda_handler(event, context):
     try:
         print(f'Incoming event: {event}')
-        event_body = json.loads(event['body'])
-        print(f'Incoming API Gateway Message: {event_body}')
-        event_path = event['path']
-        print(f'Incoming API Gateway Path: {event_path}')
-        event_http_method = event['httpMethod']
+        event_http_method = event['requestContext']['http']['method']
         print(f'Incoming API Gateway HTTP Method: {event_http_method}')
+        event_path = event['requestContext']['http']['path']
+        print(f'Incoming API Gateway Path: {event_path}')
         response = table.scan()
         print('Returning table scan response')
         return {
