@@ -5,9 +5,10 @@ aws_version=$(aws --version)
 echo "$aws_version"
 
 # AWS CLI v2 command
-error_message=$(aws lambda invoke --function-name expense-category-fetcher \
+aws lambda invoke --function-name expense-category-fetcher \
 --invocation-type RequestResponse --payload file://events/test-agw-event.json \
---cli-binary-format raw-in-base64-out /tmp/lambda-response.txt | grep "\"statusCode\": 500" /tmp/lambda-response.txt)
+--cli-binary-format raw-in-base64-out /tmp/lambda-response.txt
+error_message=$(grep "\"statusCode\": 500" /tmp/lambda-response.txt)
 echo "$error_message"
 
 # Exit if error received from Lambda invocation
