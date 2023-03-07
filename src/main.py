@@ -1,5 +1,10 @@
+from boto3 import resource
+from botocore.exceptions import ClientError
 import json
 import os
+
+resource = resource('dynamodb', region_name='us-east-2')
+table = resource.Table('expense-categories')
 
 
 def lambda_handler(event, context):
@@ -11,8 +16,15 @@ def lambda_handler(event, context):
         print(f'Incoming API Gateway Path: {event_path}')
         event_http_method = event['httpMethod']
         print(f'Incoming API Gateway HTTP Method: {event_http_method}')
-    except Exception as e:
-        msg = '\nProcessing error. Check Cloudwatch logs.'
+        response = table.scan()
+        print('Returning table scan response')
+        return {
+            "statusCode": 200,
+            "body": json.dumps(response['Items'])
+        }
+    except (Exception, ClientError) as e:
+        msg = e.response['Error']['Message']
+        print(msg)
         raise Exception(msg)
 
 
