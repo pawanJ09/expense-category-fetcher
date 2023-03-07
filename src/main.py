@@ -22,8 +22,11 @@ def lambda_handler(event, context):
         }
     except (Exception, ClientError) as e:
         msg = e.response['Error']['Message']
-        print(msg)
-        raise Exception(msg)
+        print(f'Exception caught: {msg}')
+        return {
+            "statusCode": 500,
+            "body": json.dumps(msg)
+        }
 
 
 if __name__ == '__main__':
