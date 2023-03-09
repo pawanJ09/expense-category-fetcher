@@ -1,4 +1,6 @@
-[![AWS Lambda Package, Deploy and Test](https://github.com/pawanJ09/expense-category-fetcher/actions/workflows/aws-lambda-package.yml/badge.svg)](https://github.com/pawanJ09/expense-category-fetcher/actions/workflows/aws-lambda-package.yml)
+[![Python Lint](https://github.com/pawanJ09/expense-category-fetcher/actions/workflows/python-lint.yml/badge.svg)](https://github.com/pawanJ09/expense-category-fetcher/actions/workflows/python-lint.yml)
+[![AWS Lambda Package and Deploy](https://github.com/pawanJ09/expense-category-fetcher/actions/workflows/aws-lambda-package-deploy.yml/badge.svg)](https://github.com/pawanJ09/expense-category-fetcher/actions/workflows/aws-lambda-package-deploy.yml)
+[![AWS Lambda Test](https://github.com/pawanJ09/expense-category-fetcher/actions/workflows/aws-lambda-test.yml/badge.svg)](https://github.com/pawanJ09/expense-category-fetcher/actions/workflows/aws-lambda-test.yml)
 
 # Expense Category Fetcher
 
