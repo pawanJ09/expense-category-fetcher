@@ -35,7 +35,9 @@ python ./src/main.py
 ## Trigger AWS Lambda with Test event from cli
 
 ```shell
-aws lambda invoke --function-name expense-category-fetcher --invocation-type RequestResponse \
---payload file://events/test-sqs-event.json cli-binary-format raw-in-base64-out /dev/stdout
+aws lambda invoke --function-name expense-category-fetcher \
+--invocation-type RequestResponse \
+--payload file://events/test-agw-event.json \
+--cli-binary-format raw-in-base64-out /dev/stdout
 ```
 
