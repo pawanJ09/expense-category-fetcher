@@ -18,6 +18,7 @@ def lambda_handler(event, context):
         print('Returning table scan response')
         return {
             "statusCode": 200,
+            "headers": {"content-type": "application/json"},
             "body": json.dumps(response['Items'])
         }
     except (Exception, ClientError) as e:
@@ -25,6 +26,7 @@ def lambda_handler(event, context):
         print(f'Exception caught: {msg}')
         return {
             "statusCode": 500,
+            "headers": {"content-type": "application/json"},
             "body": json.dumps(msg)
         }
 
